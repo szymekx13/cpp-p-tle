@@ -1,0 +1,74 @@
+//cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+float mnozenie_a_b(float a, float b);
+float dzielenie_a_b(float a, float b);
+float dodawanie_a_b(float a, float b);
+float odejmowanie_a_b(float a, float b);
+
+int main() {
+    float a, b;
+    int dzialanie;
+    char wybor;
+
+    do {
+        do {
+            cout << "Witaj w kalkulatorze. Wybierz działanie: " << endl;
+            cout << "Suma = 1" << endl;
+            cout << "Różnica = 2" << endl;
+            cout << "Dzielenie = 3" << endl;
+            cout << "Mnożenie = 4" << endl;
+            cin >> dzialanie;
+            if (dzialanie > 4 || dzialanie < 1) {
+                cout << "Podałeś złe działanie. Spróbuj ponownie." << endl;
+            }
+        } while (dzialanie > 4 || dzialanie < 1);
+
+        cout << "Podaj pierwszą liczbę: ";
+        cin >> a;
+        cout << "Podaj drugą liczbę: ";
+        cin >> b;
+
+        if (dzialanie == 1) {
+            cout << "Liczby " << a << " i " << b << " dodane wynoszą: " << dodawanie_a_b(a, b) << endl;
+        } else if (dzialanie == 2) {
+            cout << "Liczby " << a << " i " << b << " odjęte wynoszą: " << odejmowanie_a_b(a, b) << endl;
+        } else if (dzialanie == 3) {
+            if (b == 0) {
+                cout << "Nie można dzielić przez zero!" << endl;
+            } else {
+                cout << "Liczby " << a << " i " << b << " podzielone wynoszą: " << dzielenie_a_b(a, b) << endl;
+            }
+        } else if (dzialanie == 4) {
+            cout << "Liczby " << a << " i " << b << " pomnożone wynoszą: " << mnozenie_a_b(a, b) << endl;
+        }
+
+        cout << "Czy chcesz zrobić kolejne działanie z innymi liczbami? (t/n)? ";
+        cin >> wybor;
+
+    } while (wybor == 't' || wybor == 'T');
+
+    if (wybor == 'n' || wybor == 'N') {
+        cout << "Dziękujemy za skorzystanie z programu" << endl;
+    }
+
+    return 0;
+}
+
+float mnozenie_a_b(float a, float b) {
+    return a * b;
+}
+
+float dzielenie_a_b(float a, float b) {
+    return a / b;
+}
+
+float dodawanie_a_b(float a, float b) {
+    return a + b;
+}
+
+float odejmowanie_a_b(float a, float b) {
+    return a - b;
+}
