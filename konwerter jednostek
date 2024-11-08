@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+float PLN_na_USD(float dane2);
+float PLN_na_GBP(float dane2);
+float PLN_na_EUR(float dane2);
+float PLN_naCHF(float dane2);
+
+int main(){
+    float dane1, dane2;
+    char wybor;
+    do{
+        do{
+            cout<<"Podaj jaka waluta chcesz zamienić na złotówki: "<<endl;
+            cout<<"USD - 1"<<endl;
+            cout<<"Funty brytyjskie - 2"<<endl;
+            cout<<"EUR - 3"<<endl;
+            cout<<"CHF (Funt Szwajcarski) - 4"<<endl;
+            cin>>dane1;
+            if (dane1 < 1 || dane1 > 4){
+                cout<<"Podałeś złą walutę"<<endl;
+            }
+        }while(dane1 < 1 || dane1 > 4);
+        cout<<"Podaj wartość w złotówkach: ";
+        cin>>dane2;
+        if(dane1 == 1){
+            cout<<"Wartość twoich pieniędzy w USD wynosi: "<<PLN_na_USD(dane2)<<endl;
+        }else if(dane1 == 2){
+            cout<<"Wartośc twoich pieniędzy w GBP wynosi: "<<PLN_na_GBP(dane2)<<endl;
+        }else if(dane1 == 3){
+            cout<<"Wartośc twoich pieniędzy w EUR wynosi: "<<PLN_na_EUR(dane2)<<endl;
+        }else if(dane1 == 4){
+            cout<<"Wartośc twoich pieniędzy w CHF wynosi: "<<PLN_naCHF(dane2)<<endl;
+        }
+
+        cout<<"Czy chcesz kontynuować (t/n)?"<<endl;
+        cin>>wybor;
+}while (wybor == 't' || wybor == 'T');
+    cout<<"Dziękujemy za skorzystanie z programu"<<endl;
+    return 0;
+}
+float PLN_na_USD(float dane2){
+    float usd;
+    usd=dane2*0.25;
+    return usd;
+}
+float PLN_na_GBP(float dane2){
+    float gbp;
+    gbp=dane2*0.19;
+    return gbp;
+}
+float PLN_na_EUR(float dane2){
+    float eur;
+    eur=dane2*0.23;
+    return eur;
+}
+float PLN_naCHF(float dane2){
+    float chf;
+    chf=dane2*0.22;
+    return chf;
+}
