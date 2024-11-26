@@ -1,0 +1,39 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+void znajdzMinMax(int tablica[], int rozmiar, int min_liczba, int max_liczba) {
+    min_liczba = tablica[0];
+    max_liczba = tablica[0];
+
+    for (int i = 1; i < rozmiar; i++) {
+        if (tablica[i] < min_liczba) {
+            min_liczba = tablica[i];
+        }
+        if (tablica[i] > max_liczba) {
+            max_liczba = tablica[i];
+        }
+    }
+}
+
+int main() {
+    srand(time(NULL));
+    const int rozmiar = 50;
+    int tablica[rozmiar];
+    int min_liczba, max_liczba;
+
+    for (int i = 0; i < rozmiar; i++) {
+        tablica[i] = rand() % 1001;
+    }
+
+    znajdzMinMax(tablica, rozmiar, min_liczba, max_liczba);
+
+    for (int i = 0; i < rozmiar; i++) {
+        cout << tablica[i] << " to " << i << " liczba w tablicy" << endl;
+    }
+
+    cout << "Najmniejsza liczba: " << min_liczba << endl;
+    cout << "Największa liczba: " << max_liczba << endl;
+
+    return 0;
+}
